@@ -49,8 +49,20 @@ const DashBoard = () => {
           </div>
         </div>
 
-        {/* Example: Available Rooms Card */}
-   
+        {/* Available Rooms Card */}
+        <div className="flex items-center gap-4 bg-primary/5 border border-primary/10 rounded-lg p-5 shadow-sm">
+          <img
+            src={assets.totalRoomsIcon}
+            alt="Available Rooms"
+            className="h-12 w-12"
+          />
+          <div className="flex flex-col">
+            <p className="text-blue-600 text-lg font-semibold">Available Rooms</p>
+            <p className="text-neutral-500 text-base">
+              {dashboardData.availableRooms}
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* Recent Bookings */}
@@ -68,23 +80,21 @@ const DashBoard = () => {
             </tr>
           </thead>
           <tbody>
-            {dashboardData.recentBookings?.length > 0 ? (
-              dashboardData.recentBookings.map((booking, index) => (
+            {dashboardData.bookings?.length > 0 ? (
+              dashboardData.bookings.map((booking, index) => (
                 <tr
                   key={index}
                   className="border-t hover:bg-gray-50 text-sm text-gray-600"
                 >
-                  <td className="py-3 px-4">{booking.userName}</td>
-                  <td className="py-3 px-4">{booking.roomName}</td>
-                  <td className="py-3 px-4">${booking.amount}</td>
+                  <td className="py-3 px-4">{booking.user.username}</td>
+                  <td className="py-3 px-4">{booking.room.roomType}</td>
+                  <td className="py-3 px-4">${booking.totalPrice}</td>
                   <td
                     className={`py-3 px-4 font-medium ${
-                      booking.paymentStatus === "Paid"
-                        ? "text-green-600"
-                        : "text-red-500"
+                      booking.isPaid ? " text-green-600" : "text-red-500"
                     }`}
                   >
-                    {booking.paymentStatus}
+                    {booking.isPaid ? "Completed" : "Pending"}
                   </td>
                 </tr>
               ))
