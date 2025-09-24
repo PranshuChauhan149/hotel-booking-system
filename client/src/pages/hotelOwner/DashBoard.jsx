@@ -50,19 +50,7 @@ const DashBoard = () => {
         </div>
 
         {/* Available Rooms Card */}
-        <div className="flex items-center gap-4 bg-primary/5 border border-primary/10 rounded-lg p-5 shadow-sm">
-          <img
-            src={assets.totalRoomsIcon}
-            alt="Available Rooms"
-            className="h-12 w-12"
-          />
-          <div className="flex flex-col">
-            <p className="text-blue-600 text-lg font-semibold">Available Rooms</p>
-            <p className="text-neutral-500 text-base">
-              {dashboardData.availableRooms}
-            </p>
-          </div>
-        </div>
+     
       </div>
 
       {/* Recent Bookings */}

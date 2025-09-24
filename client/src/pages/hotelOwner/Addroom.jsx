@@ -89,10 +89,33 @@ const Addroom = () => {
           </div>
         </div>
         <p className="text-gray-800 mt-4">Amenities</p>
-        <div>
-          
+        <div className="flex flex-col flex-wrap mt-1 text-gray-400 max-w-sm ">
+          {Object.keys(inputs.amenities).map((amentity, index) => (
+            <div key={index}>
+              <input
+                type="checkbox"
+                id={`amenities${index + 1}`}
+                checked={inputs.amenities[amentity]}
+                onChange={() =>
+                  setInputs({
+                    ...inputs,
+                    amenities: {
+                      ...inputs.amenities,
+                      [amentity]: !inputs.amenities[amentity],
+                    },
+                  })
+                }
+              />
+              <label htmlFor={`amenities${index + 1}`}> {amentity}</label>
+            </div>
+          ))}
         </div>
-
+         <button
+          type="submit"
+          className="mt-6 bg-primary text-white px-6 py-2 rounded shadow hover:bg-primary/90"
+        >
+          Add Room
+        </button>
       </form>
     </div>
   );
