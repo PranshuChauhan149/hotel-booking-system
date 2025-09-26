@@ -74,4 +74,5 @@ const ListRoom = () => {
   );
 };
 
-export default ListRoom
+export default ListRoom;
+
