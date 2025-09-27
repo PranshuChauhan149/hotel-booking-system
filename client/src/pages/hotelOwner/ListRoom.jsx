@@ -61,7 +61,7 @@ const ListRoom = () => {
               <tr>
                 <td
                   colSpan="4"
-                  className="text-center text-gray-500 py-6"
+                  className="text-center text-gray-600 py-6"
                 >
                   No rooms available
                 </td>
